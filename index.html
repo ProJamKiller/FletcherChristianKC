@@ -1,533 +1,851 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>GNOSIS</title>
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+
+  <title>Fletcher Christian KC | Official Links — Jam Killer Productions</title>
+
+  <meta name="description" content="Fletcher Christian (KC) — official links for music, video, and projects. Stream on Spotify, Apple Music, SoundCloud. Visit Jam Killer Productions, The Mutiny Report, and JETTAI." />
+  <link rel="canonical" href="https://fletcherchristiankc.rip/" />
+
+  <!-- Social share -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Fletcher Christian KC — Official Links" />
+  <meta property="og:description" content="Music + media + projects by Fletcher Christian. Jam Killer Productions, The Mutiny Report, JETTAI." />
+  <meta property="og:image" content="https://bafybeifomauig6ybwnudusghqb6etiy6ryguuktd4bbrqgb4uzuubrypjq.ipfs.dweb.link?filename=swansocial.png" />
+  <meta property="og:image:alt" content="Fletcher Christian KC social share card" />
+  <meta property="og:url" content="https://fletcherchristiankc.rip/" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Fletcher Christian KC — Official Links" />
+  <meta name="twitter:description" content="Music + media + projects by Fletcher Christian. Jam Killer Productions, The Mutiny Report, JETTAI." />
+  <meta name="twitter:image" content="https://bafybeifomauig6ybwnudusghqb6etiy6ryguuktd4bbrqgb4uzuubrypjq.ipfs.dweb.link?filename=swansocial.png" />
+
+  <meta name="theme-color" content="#070712" />
+
+  <!-- Icons -->
+  <link rel="icon" type="image/jpeg" href="https://bafybeibzr6di5hupp7brliozqnzpls6r7celmmhzwdekp4ckrkkqlo3o4a.ipfs.dweb.link?filename=IMG_2050.JPG" />
+  <link rel="apple-touch-icon" href="https://bafybeibzr6di5hupp7brliozqnzpls6r7celmmhzwdekp4ckrkkqlo3o4a.ipfs.dweb.link?filename=IMG_2050.JPG" />
+
+  <link rel="preconnect" href="https://cdn.simpleicons.org" />
+
+  <!-- SEO: Entity / Knowledge Graph help (non-visible) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Person",
+    "name":"Fletcher Christian",
+    "alternateName":["Fletcher Christian KC","fletcherchristiankc"],
+    "jobTitle":["Musician","Producer","Independent Media Creator"],
+    "homeLocation":{"@type":"Place","name":"Kansas City"},
+    "url":"https://fletcherchristiankc.rip/",
+    "image":"https://bafybeifomauig6ybwnudusghqb6etiy6ryguuktd4bbrqgb4uzuubrypjq.ipfs.dweb.link?filename=swansocial.png",
+    "sameAs":[
+      "https://jamkillerproductions.io",
+      "https://mutinyreport.com",
+      "https://jettai.pro",
+      "https://open.spotify.com/artist/2FjdpboVDGnJs9wuGcJV8H",
+      "https://music.apple.com/us/artist/fletcher-christian/1237400126",
+      "https://soundcloud.com/therealfletcherchristian",
+      "https://x.com/projamkiller",
+      "https://www.youtube.com/@Projamkiller",
+      "https://instagram.com/fletcherchristian1979"
+    ]
+  }
+  </script>
+
   <style>
-    /* GLOBAL RESET */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    :root{
+      /* Keep the Jam Killer vibe, but not a 1:1 clone */
+      --bg0:#060611;
+      --bg1:#0b0b1d;
+
+      --text: rgba(255,255,255,.93);
+      --muted: rgba(255,255,255,.70);
+      --line: rgba(255,255,255,.14);
+
+      --c1: 290 95% 64%;
+      --c2: 200 100% 56%;
+      --c3: 35 100% 62%;
+      --c4: 155 85% 50%;
+
+      --radius: 22px;
+      --shadow: 0 26px 90px rgba(0,0,0,.55);
+      --max: 1120px;
     }
 
-    /* BODY & BASIC LAYOUT */
-    body {
-      font-family: 'Open Sans', sans-serif;
-      background: linear-gradient(135deg, #0c0c0c, #3f104f); /* Slight shift to a purple-tinted background */
-      color: #fff;
-      overflow-x: hidden;
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      color:var(--text);
+      background:
+        radial-gradient(1100px 640px at 10% 0%, rgba(255,255,255,.07), transparent 62%),
+        radial-gradient(920px 540px at 92% 18%, rgba(255,255,255,.06), transparent 58%),
+        radial-gradient(700px 520px at 55% 105%, rgba(255,255,255,.05), transparent 60%),
+        linear-gradient(180deg, var(--bg0), var(--bg1));
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      overflow-x:hidden;
     }
 
-    /* HEADER */
-    header {
-      text-align: center;
-      background: rgba(0, 0, 0, 0.6);
-      position: relative;
-      border-bottom: 2px solid #9933ff; /* Purple accent for header bottom border */
-      overflow: hidden;
-      padding: 20px;
+    a{ color:inherit; text-decoration:none; }
+    a:focus-visible{
+      outline: 2px solid rgba(255,255,255,.85);
+      outline-offset: 4px;
+      border-radius: 14px;
     }
 
-    /* HEADER IMAGE */
-    .header-img {
-      max-width: 100%;
-      height: auto;
-      display: block;
-      margin: 0 auto 10px;
-    }
-
-    /* OPTIONAL BACKGROUND ANIMATION */
-    header::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(#9933ff, transparent 70%);
-      opacity: 0.07;
-      animation: pulse 5s infinite alternate ease-in-out;
+    /* Background video (kept) */
+    .video-bg{
+      position: fixed;
+      inset: 0;
+      z-index: 0;
       pointer-events: none;
+      opacity: 0;
+      transform: scale(1.03);
+      transition: opacity 1200ms ease, transform 1400ms ease;
     }
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      100% { transform: scale(1.5); }
+    .video-bg.is-on{
+      opacity: .18;
+      transform: scale(1);
+    }
+    .video-bg video{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: saturate(1.05) contrast(1.08) blur(2px);
+    }
+    .video-vignette{
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(900px 600px at 35% 18%, rgba(0,0,0,.20), rgba(0,0,0,.66)),
+        linear-gradient(180deg, rgba(0,0,0,.58), rgba(0,0,0,.78));
     }
 
-    header h2 {
-      font-size: 1.1rem;
-      color: #ccc;
-      text-transform: uppercase;
-      font-weight: normal;
-      letter-spacing: 1px;
-      margin-bottom: 10px;
-      position: relative;
+    /* Aurora layer (slightly different feel) */
+    .aurora{
+      position: fixed;
+      inset: -26vmax;
+      z-index: 1;
+      pointer-events:none;
+      filter: blur(52px);
+      opacity: .56;
+      background:
+        radial-gradient(closest-side, hsl(var(--c2) / .24), transparent 66%),
+        radial-gradient(closest-side, hsl(var(--c1) / .26), transparent 70%),
+        radial-gradient(closest-side, hsl(var(--c3) / .18), transparent 72%),
+        radial-gradient(closest-side, hsl(var(--c4) / .16), transparent 74%);
+      transform: translate3d(0,0,0);
+      animation: drift 14s ease-in-out infinite alternate;
+    }
+    @keyframes drift{
+      0%   { transform: translate(-2%, -1%) scale(1.02); }
+      50%  { transform: translate(2%, 2%) scale(1.05); }
+      100% { transform: translate(3%, -2%) scale(1.07); }
+    }
+
+    .wrap{
+      position:relative;
       z-index: 2;
+      max-width: var(--max);
+      margin:0 auto;
+      padding: 22px;
     }
 
-    header p {
-      font-size: 1rem;
-      color: #ccc;
-      max-width: 600px;
-      margin: 0 auto 20px auto;
-      position: relative;
-      z-index: 2;
-      line-height: 1.5;
+    /* Header */
+    .topbar{
+      position: sticky;
+      top:0;
+      z-index:10;
+      backdrop-filter: blur(16px);
+      background: linear-gradient(180deg, rgba(8,8,18,.90), rgba(8,8,18,.52));
+      border-bottom: 1px solid var(--line);
+    }
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      padding: 14px 0;
     }
 
-    .container {
-      max-width: 1000px;
-      margin: 40px auto;
-      padding: 20px;
-      background: rgba(20, 20, 20, 0.85);
-      border-radius: 10px;
-      box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-width: 250px;
     }
-
-    section {
-      margin-bottom: 40px;
+    .brand img{
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.18);
+      box-shadow: 0 14px 40px rgba(0,0,0,.45);
+      object-fit: cover;
     }
-
-    section h3 {
-      font-size: 2rem;
-      border-bottom: 2px solid #9933ff; /* Purple accent for section headers */
-      display: inline-block;
-      padding-bottom: 5px;
-      margin-bottom: 20px;
-      color: #ffcc00; /* Keep gold text for contrast */
+    .brand .t1{
+      font-weight: 920;
+      letter-spacing: .2px;
+      line-height: 1.05;
+    }
+    .brand .t2{
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 2px;
+      letter-spacing: .18em;
       text-transform: uppercase;
     }
 
-    section p {
-      font-size: 1rem;
-      line-height: 1.5;
-      margin-bottom: 20px;
-      color: #eee;
+    .navlinks{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
     }
 
-    /* WARNING BLOCK */
-    .warning-block {
-      background: #2b0000;
-      border-left: 4px solid #ff0000;
-      padding: 20px;
-      margin-bottom: 40px;
-      color: #f2f2f2;
+    /* Chips */
+    .chip{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding: 10px 13px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.14);
+      transition: transform .15s ease, background .15s ease, border-color .15s ease, box-shadow .15s ease;
+      user-select:none;
+      white-space: nowrap;
     }
-    .warning-block h4 {
-      margin-bottom: 10px;
-      color: #ff5555;
+    .chip:hover{
+      transform: translateY(-1px);
+      background: rgba(255,255,255,.085);
+      border-color: rgba(255,255,255,.24);
+      box-shadow: 0 18px 48px rgba(0,0,0,.35);
     }
-    .warning-block p {
-      font-size: 0.95rem;
-      line-height: 1.6;
+    .chip img.icon{
+      width:18px;
+      height:18px;
+      display:block;
     }
-
-    /* CONTRADICTION CARDS */
-    .contradiction-card {
-      background-color: #111;
-      border: 1px solid #ffcc00;
-      border-radius: 8px;
-      margin-bottom: 20px;
-      transition: transform 0.3s ease, border-color 0.3s ease;
-      overflow: hidden;
-    }
-    .contradiction-card:hover {
-      transform: scale(1.01);
-      border-color: #9933ff; /* Purple highlight on hover */
+    .chip span{
+      font-size: 13px;
+      letter-spacing:.2px;
     }
 
-    .card-header {
-      background: #222;
-      padding: 15px;
+    .cta{
+      background: linear-gradient(90deg, hsl(var(--c2) / .20), hsl(var(--c1) / .20));
+      border-color: rgba(255,255,255,.22);
     }
-    .card-header h4 {
-      color: #ffcc00; 
-      margin-bottom: 5px;
-      font-size: 1.2rem;
-    }
-    .card-header p {
-      font-size: 0.9rem;
-      color: #ddd;
+    .cta:hover{
+      background: linear-gradient(90deg, hsl(var(--c2) / .26), hsl(var(--c1) / .26));
     }
 
-    .reveal-btn {
-      display: block;
-      background: transparent;
-      border: none;
-      color: #ffcc00;
-      font-weight: bold;
-      font-size: 1rem;
-      text-transform: uppercase;
-      cursor: pointer;
-      margin: 10px auto;
-      padding: 10px;
-      transition: color 0.3s ease;
+    /* Hero */
+    .hero{ padding: 54px 0 18px; }
+    .grid{
+      display:grid;
+      grid-template-columns: 1.12fr .88fr;
+      gap: 16px;
+      align-items: stretch;
     }
-    .reveal-btn:hover {
-      color: #9933ff; /* Purple hover effect on reveal button */
+    @media (max-width: 960px){
+      .grid{ grid-template-columns: 1fr; }
+      .brand{ min-width:auto; }
+      .navlinks{ justify-content:flex-start; }
     }
 
-    .card-body {
-      display: none;
-      background: #1c1c1c;
-      padding: 15px;
-      border-top: 1px solid #ffcc00;
+    .card{
+      position:relative;
+      overflow:hidden;
+      border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,.14);
+      background: linear-gradient(180deg, rgba(255,255,255,.095), rgba(255,255,255,.055));
+      box-shadow: var(--shadow);
+      padding: 24px;
     }
-    .card-body h5 {
-      color: #ffcc00;
-      margin-bottom: 10px;
-      font-size: 1.1rem;
+    .card::before{
+      content:"";
+      position:absolute;
+      inset:-2px;
+      background:
+        radial-gradient(900px 360px at 18% 12%, hsl(var(--c2) / .16), transparent 62%),
+        radial-gradient(820px 320px at 86% 20%, hsl(var(--c1) / .14), transparent 60%);
+      opacity:.9;
+      pointer-events:none;
     }
-    .card-body p {
-      font-size: 0.9rem;
-      color: #ccc;
+    .card > *{ position:relative; }
+
+    .shine{
+      position:absolute;
+      inset: -40% -70%;
+      background: linear-gradient(120deg, transparent 35%, rgba(255,255,255,.20) 45%, transparent 55%);
+      transform: rotate(12deg);
+      animation: shine 9s ease-in-out infinite;
+      opacity:.30;
+      pointer-events:none;
+    }
+    @keyframes shine{
+      0%   { transform: translateX(-20%) rotate(12deg); }
+      50%  { transform: translateX(28%) rotate(12deg); }
+      100% { transform: translateX(-20%) rotate(12deg); }
     }
 
-    /* QUIZ SECTION */
-    .quiz-container {
-      background: #222;
-      padding: 20px;
-      border-radius: 8px;
-      border: 2px solid #9933ff; /* Purple accent for quiz container */
-      margin: 0 auto;
-      max-width: 600px;
-      transition: border-color 0.3s ease;
+    h1{
+      margin: 0;
+      font-weight: 950;
+      letter-spacing: -0.9px;
+      font-size: clamp(36px, 4.2vw, 56px);
+      line-height: 1.02;
     }
-
-    .quiz-question {
-      margin-bottom: 25px;
-    }
-    .quiz-question h4 {
-      font-size: 1rem;
-      margin-bottom: 10px;
-      color: #fff;
-    }
-    .quiz-options label {
-      display: block;
-      background: #333;
-      margin-bottom: 8px;
-      padding: 10px;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background 0.3s;
-      font-size: 0.9rem;
-    }
-    .quiz-options label:hover {
-      background: #444;
-    }
-    .quiz-options input[type="radio"] {
-      margin-right: 8px;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 10px 20px;
-      background-color: #ffcc00;
-      color: #000;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 1rem;
-      text-decoration: none;
-      transition: background-color 0.3s;
+    .subtitle{
       margin-top: 10px;
+      font-size: 13px;
+      letter-spacing: .18em;
       text-transform: uppercase;
-      font-weight: bold;
+      color: rgba(255,255,255,.75);
     }
-    .btn:hover {
-      background-color: #ffd633;
-    }
-
-    #quiz-result {
-      margin-top: 20px;
-      font-size: 1rem;
-      color: #ff6600;
+    .lead{
+      margin-top: 16px;
+      color: rgba(255,255,255,.82);
+      line-height: 1.65;
+      max-width: 72ch;
+      font-size: 15.6px;
     }
 
-    /* SARCASTIC BLOCK */
-    .sarcasm {
-      background: #111;
-      padding: 20px;
-      border-left: 4px solid #ff3300;
-      font-style: italic;
-      margin: 20px 0;
+    .sig{
+      display:inline-block;
+      background: linear-gradient(90deg,
+        hsl(var(--c2) / 1),
+        hsl(var(--c1) / 1),
+        hsl(var(--c3) / 1),
+        hsl(var(--c2) / 1)
+      );
+      background-size: 220% 100%;
+      -webkit-background-clip: text;
+      background-clip:text;
+      color: transparent;
+      animation: flow 6s ease-in-out infinite;
+    }
+    @keyframes flow{
+      0%{ background-position: 0% 50%; }
+      50%{ background-position: 100% 50%; }
+      100%{ background-position: 0% 50%; }
     }
 
-    /* FOOTER */
-    footer {
-      margin-top: 40px;
-      padding: 20px;
-      background: #111;
-      border-top: 2px solid #9933ff; /* Purple accent on footer top border */
-      text-align: center;
+    .badges{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top: 16px;
     }
-    footer p {
-      margin-bottom: 5px;
+    .pill{
+      display:inline-flex;
+      padding: 9px 12px;
+      border-radius: 999px;
+      background: rgba(0,0,0,.22);
+      border: 1px solid rgba(255,255,255,.14);
+      color: rgba(255,255,255,.78);
+      font-size: 12.5px;
+      letter-spacing: .2px;
+      transition: transform .15s ease, background .15s ease;
     }
-    footer a {
-      color: #ffcc00;
-      font-size: 1rem;
-      text-decoration: none;
-      transition: transform 0.3s;
-      display: inline-block;
-    }
-    footer a:hover {
-      transform: scale(1.1);
-      color: #9933ff; /* Turn link purple on hover */
+    .pill:hover{
+      transform: translateY(-1px);
+      background: rgba(255,255,255,.07);
     }
 
-    /* RESPONSIVE */
-    @media (max-width: 600px) {
-      .header-img {
-        width: 100%;
-      }
-      header h2 {
-        font-size: 0.9rem;
-      }
-      header p {
-        font-size: 0.85rem;
-      }
-      .container {
-        margin: 20px;
-      }
-      .quiz-container, .contradiction-card {
-        margin: 10px auto;
-      }
+    .logoBox{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      min-height: 320px;
+      padding: 18px;
+    }
+    .logoFrame{
+      width: 100%;
+      border-radius: 22px;
+      border: 1px solid rgba(255,255,255,.16);
+      background: rgba(0,0,0,.20);
+      box-shadow: 0 28px 90px rgba(0,0,0,.60);
+      overflow:hidden;
+      position:relative;
+      animation: floaty 6.8s ease-in-out infinite;
+    }
+    @keyframes floaty{
+      0%{ transform: translateY(0px); }
+      50%{ transform: translateY(-7px); }
+      100%{ transform: translateY(0px); }
+    }
+    .logoFrame::after{
+      content:"";
+      position:absolute;
+      inset:-2px;
+      background: radial-gradient(420px 260px at 28% 12%, hsl(var(--c2) / .16), transparent 62%);
+      pointer-events:none;
+      opacity:.85;
+    }
+    .logoFrame img{
+      display:block;
+      width:100%;
+      height:auto;
+      max-height: 420px;
+      object-fit: contain;
+      padding: 18px;
+      position:relative;
+      z-index:1;
+    }
+
+    section{ padding: 18px 0 8px; }
+    .sectionTitle{
+      margin: 0 0 10px;
+      font-size: 13px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.74);
+    }
+
+    .split{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    @media (max-width: 960px){
+      .split{ grid-template-columns:1fr; }
+    }
+
+    .list{ display:flex; flex-direction:column; gap:10px; }
+    .bigLink{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      padding: 14px 14px;
+      border-radius: 18px;
+      background: rgba(0,0,0,.22);
+      border: 1px solid rgba(255,255,255,.14);
+      transition: transform .16s ease, background .16s ease, border-color .16s ease, box-shadow .16s ease;
+      position:relative;
+      overflow:hidden;
+    }
+    .bigLink:hover{
+      transform: translateY(-1px);
+      background: rgba(255,255,255,.07);
+      border-color: rgba(255,255,255,.24);
+      box-shadow: 0 18px 60px rgba(0,0,0,.40);
+    }
+    .bigLink .left{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+    .bigLink img.icon{
+      width:22px;
+      height:22px;
+      display:block;
+    }
+    .bigLink .name{
+      font-weight: 850;
+      letter-spacing:.2px;
+    }
+    .bigLink .hint{
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+    .arrow{
+      opacity:.75;
+      font-size: 18px;
+    }
+
+    .copy{
+      color: rgba(255,255,255,.85);
+      line-height: 1.78;
+      font-size: 15.6px;
+      max-width: 92ch;
+      margin: 0;
+    }
+
+    .ctaRow{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+      margin-top: 12px;
+    }
+
+    footer{
+      margin-top: 28px;
+      padding: 22px 0 40px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .footerRow{
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+      align-items:flex-start;
+    }
+    .small{
+      font-size: 12px;
+      color: rgba(255,255,255,.60);
+      line-height: 1.6;
+      max-width: 78ch;
+    }
+
+    .reveal{
+      opacity:0;
+      transform: translateY(10px);
+      animation: up .7s ease forwards;
+    }
+    .reveal.d2{ animation-delay: .10s; }
+    .reveal.d3{ animation-delay: .18s; }
+    .reveal.d4{ animation-delay: .26s; }
+    @keyframes up{ to{ opacity:1; transform: translateY(0); } }
+
+    /* Non-visible SEO text (safe: minimal, not spammy, not repeated) */
+    .seo-only{
+      position:absolute !important;
+      width:1px !important;
+      height:1px !important;
+      padding:0 !important;
+      margin:-1px !important;
+      overflow:hidden !important;
+      clip:rect(0,0,0,0) !important;
+      white-space:nowrap !important;
+      border:0 !important;
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      .aurora, .shine, .logoFrame, .sig, .reveal{ animation: none !important; }
+      .reveal{ opacity:1; transform:none; }
+      .video-bg{ transition:none; }
+      .video-bg.is-on{ opacity:.16; }
     }
   </style>
 </head>
+
 <body>
-
-  <!-- HEADER IMAGE & TEXT -->
-  <header>
-    <img 
-      src="https://bafybeigewlqnaoxptq7etuttvmhiir7vld3qcxi4j5z2mxkn7n7goqqre4.ipfs.dweb.link?filename=gnosisheader.gif" 
-      alt="GNOSIS Header" 
-      class="header-img"
-    />
-    <h2>Knowing That Abrahamic Traditions Cannot Be Taken Literally</h2>
-    <p>
-      When you've got talk of prophecies and holy wars fueling real-world tensions, it's time to wake up and see 
-      the bigger picture: dogmatic literalism is a recipe for global disaster.
-    </p>
-  </header>
-
-  <!-- MAIN CONTENT WRAPPER -->
-  <div class="container">
-
-    <!-- WARNING ABOUT CURRENT WORLD -->
-    <div class="warning-block">
-      <h4>Global Reality Check</h4>
-      <p>
-        Wars rage across continents. Nations stockpile nukes. The slightest spark could spiral us into World War III. 
-        Yet, many cling to ancient texts, reading every line like a cosmic instruction manual for Armageddon. 
-        Does that really make sense in the 21st century, or are we stoking our own apocalypse?
-      </p>
-    </div>
-
-    <!-- INTRO SECTION -->
-    <section id="intro">
-      <h3>Why GNOSIS?</h3>
-      <p>
-        GNOSIS isn’t here to politely whisper that maybe, just maybe, everything in scripture 
-        shouldn’t be read as factual history. We’re here to yell it from the rooftops: 
-        <strong>Literalism kills nuance, fosters extremism, and practically begs for doomsday scenarios.</strong> 
-        Whether it's fueling religious nationalist movements or justifying violence, 
-        a “take it at face value” approach to Abrahamic texts belongs in the Dark Ages, not our modern, 
-        nuclear-tipped era.
-      </p>
-    </section>
-
-    <!-- CONTRADICTIONS SECTION -->
-    <section id="contradictions">
-      <h3>Contradictions & Absurdities</h3>
-      <p>
-        Let’s get blunt: If you're basing modern-day policies or existential beliefs on 
-        documents that can’t keep their own stories straight, how confident can you really be?
-      </p>
-
-      <!-- EXAMPLE CONTRADICTION CARD -->
-      <div class="contradiction-card">
-        <div class="card-header">
-          <h4>God Incites or Satan Incites?</h4>
-          <p>(2 Samuel 24:1 vs. 1 Chronicles 21:1)</p>
-        </div>
-        <button class="reveal-btn" onclick="toggleCard('card-body-1')">
-          Reveal the Contradiction
-        </button>
-        <div class="card-body" id="card-body-1">
-          <h5>The Conflict</h5>
-          <p>
-            One passage says God made King David take a census. Another says it was Satan. 
-            You’d think they'd iron this out in the same holy book if it were that important. 
-            But hey, who’s counting?
-          </p>
-        </div>
-      </div>
-
-      <div class="contradiction-card">
-        <div class="card-header">
-          <h4>Noah’s Ark: Two or Seven?</h4>
-          <p>(Genesis 6:19-20 vs. Genesis 7:2-3)</p>
-        </div>
-        <button class="reveal-btn" onclick="toggleCard('card-body-2')">
-          Reveal the Contradiction
-        </button>
-        <div class="card-body" id="card-body-2">
-          <h5>The Conflict</h5>
-          <p>
-            First God says “two of every kind,” then “seven pairs of the clean animals.” 
-            If you think this is consistent, your mental gymnastics are gold-medal worthy. 
-            Maybe we just needed extra steaks post-flood?
-          </p>
-        </div>
-      </div>
-
-      <div class="contradiction-card">
-        <div class="card-header">
-          <h4>Judas: Hanged or Fell Apart?</h4>
-          <p>(Matthew 27:5 vs. Acts 1:18)</p>
-        </div>
-        <button class="reveal-btn" onclick="toggleCard('card-body-3')">
-          Reveal the Contradiction
-        </button>
-        <div class="card-body" id="card-body-3">
-          <h5>The Conflict</h5>
-          <p>
-            Did he hang himself, or did he fall headlong and burst open? 
-            If you’re taking every verse literally, you’ll need a pretty creative 
-            scenario to reconcile these two gruesome endings. 
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- QUIZ SECTION -->
-    <section id="quiz">
-      <h3>Interactive Quiz</h3>
-      <p>
-        Test how literally you’re taking these ancient texts that people keep weaponizing for modern mayhem:
-      </p>
-      <div class="quiz-container">
-        <div class="quiz-question">
-          <h4>1. When Revelation mentions “locusts with human faces” wreaking havoc, you think:</h4>
-          <div class="quiz-options">
-            <label>
-              <input type="radio" name="q1" value="literal"/>
-              “Yep, real mutant locusts are coming. We’re doomed.”
-            </label>
-            <label>
-              <input type="radio" name="q1" value="metaphor"/>
-              “Sounds like a metaphor for oppressive regimes or unstoppable forces.”
-            </label>
-            <label>
-              <input type="radio" name="q1" value="sarcasm"/>
-              “I’d pay to see that blockbuster, but I’m not basing my worldview on it.”
-            </label>
-          </div>
-        </div>
-
-        <div class="quiz-question">
-          <h4>2. When Jesus talks about “wars and rumors of wars” (Matt 24:6):</h4>
-          <div class="quiz-options">
-            <label>
-              <input type="radio" name="q2" value="literal"/>
-              “Every new conflict is definitely The End. Any day now.”
-            </label>
-            <label>
-              <input type="radio" name="q2" value="metaphor"/>
-              “He’s warning people not to panic at every crisis—calm down, folks.”
-            </label>
-            <label>
-              <input type="radio" name="q2" value="sarcasm"/>
-              “If I had a nickel for every ‘end times prophecy’ that flopped...”
-            </label>
-          </div>
-        </div>
-
-        <button class="btn" onclick="submitQuiz()">Submit</button>
-        <div id="quiz-result"></div>
-      </div>
-    </section>
-
-    <!-- REFLECTION SECTION -->
-    <section id="reflection">
-      <h3>A Moment of Reflection</h3>
-      <p>
-        If the planet goes up in nuclear flames because some zealots insisted on turning 
-        these texts into a literal script for Armageddon, how does that honor any God? 
-        Or humanity, for that matter?
-      </p>
-      <div class="sarcasm">
-        “Bible literalism is the spiritual equivalent of driving your car 
-        by staring at the GPS directions with no regard for oncoming traffic or the cliff’s edge. 
-        Then acting surprised when you crash.”
-      </div>
-      <p>
-        It’s time to snap out of it. Scriptures can have profound wisdom—metaphor, symbolism, 
-        moral teachings. But if we ignore the nuance and cling to every line as an 
-        unerring cosmic blueprint, we risk fueling the very fires we claim to fear.
-      </p>
-    </section>
+  <div class="video-bg" id="videoBg" aria-hidden="true">
+    <video id="dragonVideo" autoplay muted loop playsinline preload="metadata">
+      <source src="https://bafybeib6nnxiuc72lbwjes6uroda5lf2qfe35pqyetso2pylpr5fglw7hi.ipfs.dweb.link?filename=dragonbackgroundanimated.MP4" type="video/mp4" />
+    </video>
+    <div class="video-vignette"></div>
   </div>
 
-  <!-- FOOTER -->
-  <footer>
-    <p>© 2025 GNOSIS</p>
-    <a href="https://jamkillerproductions.io">Jam Killer Productions LLc</a>
-  </footer>
+  <div class="aurora" aria-hidden="true"></div>
 
-  <!-- JAVASCRIPT FOR INTERACTIVITY -->
+  <header class="topbar">
+    <div class="wrap">
+      <div class="nav">
+        <a class="brand" href="#top" aria-label="Fletcher Christian KC home">
+          <img
+            src="https://bafybeibzr6di5hupp7brliozqnzpls6r7celmmhzwdekp4ckrkkqlo3o4a.ipfs.dweb.link?filename=IMG_2050.JPG"
+            alt="Fletcher Christian logo"
+            loading="eager"
+            decoding="async"
+          />
+          <div>
+            <div class="t1">Fletcher Christian KC</div>
+            <div class="t2">Official Links</div>
+          </div>
+        </a>
+
+        <nav class="navlinks" aria-label="Primary">
+          <a class="chip" href="#listen"><span>Listen</span></a>
+          <a class="chip" href="#watch"><span>Watch</span></a>
+          <a class="chip" href="#projects"><span>Projects</span></a>
+          <a class="chip" href="#about"><span>About</span></a>
+          <a class="chip cta" href="https://jamkillerproductions.io" target="_blank" rel="noopener">
+            <span>Main Hub</span>
+          </a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main id="top" class="wrap">
+    <div class="hero">
+      <div class="grid">
+        <div class="card reveal">
+          <div class="shine" aria-hidden="true"></div>
+
+          <h1><span class="sig">Fletcher</span> Christian</h1>
+          <div class="subtitle">Kansas City • Music • Production • Media</div>
+
+          <p class="lead reveal d2">
+            The clean front door for <strong>Fletcher Christian KC</strong> — official streaming, video, and the core projects under <strong>Jam Killer Productions</strong>.
+          </p>
+
+          <div class="badges reveal d3">
+            <span class="pill">#fletcherchristiankc</span>
+            <span class="pill">Jam Killer Productions</span>
+            <span class="pill">The Mutiny Report</span>
+            <span class="pill">JETTAI</span>
+          </div>
+
+          <div style="height:14px"></div>
+
+          <div class="badges reveal d4" style="gap:10px;">
+            <a class="chip cta" href="https://jamkillerproductions.io" target="_blank" rel="noopener">
+              <span>JamKillerProductions.io</span>
+            </a>
+
+            <a class="chip" href="https://open.spotify.com/artist/2FjdpboVDGnJs9wuGcJV8H" target="_blank" rel="noopener">
+              <img class="icon" alt="Spotify logo" src="https://cdn.simpleicons.org/spotify/ffffff" />
+              <span>Spotify</span>
+            </a>
+
+            <a class="chip" href="https://music.apple.com/us/artist/fletcher-christian/1237400126" target="_blank" rel="noopener">
+              <img class="icon" alt="Apple Music logo" src="https://cdn.simpleicons.org/applemusic/ffffff" />
+              <span>Apple Music</span>
+            </a>
+
+            <a class="chip" href="https://soundcloud.com/therealfletcherchristian" target="_blank" rel="noopener">
+              <img class="icon" alt="SoundCloud logo" src="https://cdn.simpleicons.org/soundcloud/ffffff" />
+              <span>SoundCloud</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="card logoBox reveal d2" aria-label="Animated logo">
+          <div class="shine" aria-hidden="true"></div>
+          <div class="logoFrame">
+            <img
+              src="https://bafybeidadwoh6ijm55dj4jdyzddo3im2mm7gz4udw2nykbe7lorp2sulze.ipfs.dweb.link?filename=CC5F2BB0-3F20-4024-827F-521F467849D7.gif"
+              alt="Jam Killer Productions animated logo"
+              loading="eager"
+              decoding="async"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section id="listen">
+      <div class="sectionTitle">Listen</div>
+      <div class="card reveal d2">
+        <div class="shine" aria-hidden="true"></div>
+
+        <div class="list">
+          <a class="bigLink" href="https://open.spotify.com/artist/2FjdpboVDGnJs9wuGcJV8H" target="_blank" rel="noopener">
+            <div class="left">
+              <img class="icon" alt="Spotify logo" src="https://cdn.simpleicons.org/spotify/ffffff" />
+              <div>
+                <div class="name">Spotify</div>
+                <div class="hint">Follow + stream</div>
+              </div>
+            </div>
+            <div class="arrow">↗</div>
+          </a>
+
+          <a class="bigLink" href="https://music.apple.com/us/artist/fletcher-christian/1237400126" target="_blank" rel="noopener">
+            <div class="left">
+              <img class="icon" alt="Apple Music logo" src="https://cdn.simpleicons.org/applemusic/ffffff" />
+              <div>
+                <div class="name">Apple Music</div>
+                <div class="hint">Official artist page</div>
+              </div>
+            </div>
+            <div class="arrow">↗</div>
+          </a>
+
+          <a class="bigLink" href="https://soundcloud.com/therealfletcherchristian" target="_blank" rel="noopener">
+            <div class="left">
+              <img class="icon" alt="SoundCloud logo" src="https://cdn.simpleicons.org/soundcloud/ffffff" />
+              <div>
+                <div class="name">SoundCloud</div>
+                <div class="hint">Demos, drops, and raw cuts</div>
+              </div>
+            </div>
+            <div class="arrow">↗</div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="watch">
+      <div class="sectionTitle">Watch</div>
+      <div class="card reveal d3">
+        <div class="shine" aria-hidden="true"></div>
+
+        <div class="list">
+          <a class="bigLink" href="https://www.youtube.com/@Projamkiller" target="_blank" rel="noopener">
+            <div class="left">
+              <img class="icon" alt="YouTube logo" src="https://cdn.simpleicons.org/youtube/ffffff" />
+              <div>
+                <div class="name">YouTube</div>
+                <div class="hint">@Projamkiller</div>
+              </div>
+            </div>
+            <div class="arrow">↗</div>
+          </a>
+
+          <a class="bigLink" href="https://mutinyreport.com" target="_blank" rel="noopener">
+            <div class="left">
+              <img
+                class="icon"
+                alt="Mutiny Report logo"
+                src="https://bafybeiepo6imnnollb3p54idu2yse3qpalyq5x5de7nw4ipnbh3a5ytsc4.ipfs.dweb.link?filename=The%20mutiny%20report.png"
+              />
+              <div>
+                <div class="name">The Mutiny Report</div>
+                <div class="hint">Independent commentary + journalism</div>
+              </div>
+            </div>
+            <div class="arrow">↗</div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="sectionTitle">Projects</div>
+      <div class="card reveal d2">
+        <div class="shine" aria-hidden="true"></div>
+
+        <div class="list">
+          <a class="bigLink" href="https://jamkillerproductions.io" target="_blank" rel="noopener">
+            <div class="left">
+              <img
+                class="icon"
+                alt="Jam Killer Productions logo"
+                src="https://bafybeibzr6di5hupp7brliozqnzpls6r7celmmhzwdekp4ckrkkqlo3o4a.ipfs.dweb.link?filename=IMG_2050.JPG"
+              />
+              <div>
+                <div class="name">Jam Killer Productions</div>
+                <div class="hint">Main hub with everything</div>
+              </div>
+            </div>
+            <div class="arrow">↗</div>
+          </a>
+
+          <a class="bigLink" href="https://jettai.pro" target="_blank" rel="noopener">
+            <div class="left">
+              <img
+                class="icon"
+                alt="JETTAI logo"
+                src="https://bafybeibirgqc6hhv7taeulaiayvt2zmuqvfexnudrccptdqjhyjajybjru.ipfs.dweb.link?filename=IMG_4472%202.jpeg"
+              />
+              <div>
+                <div class="name">JETTAI</div>
+                <div class="hint">Signal before the sirens</div>
+              </div>
+            </div>
+            <div class="arrow">↗</div>
+          </a>
+
+          <a class="bigLink" href="https://x.com/projamkiller" target="_blank" rel="noopener">
+            <div class="left">
+              <img class="icon" alt="X logo" src="https://cdn.simpleicons.org/x/ffffff" />
+              <div>
+                <div class="name">X</div>
+                <div class="hint">@projamkiller</div>
+              </div>
+            </div>
+            <div class="arrow">↗</div>
+          </a>
+
+          <a class="bigLink" href="https://instagram.com/fletcherchristian1979" target="_blank" rel="noopener">
+            <div class="left">
+              <img class="icon" alt="Instagram logo" src="https://cdn.simpleicons.org/instagram/ffffff" />
+              <div>
+                <div class="name">Instagram</div>
+                <div class="hint">@fletcherchristian1979</div>
+              </div>
+            </div>
+            <div class="arrow">↗</div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT: visible (clean) + non-visible (minimal + safe) -->
+    <section id="about">
+      <div class="sectionTitle">About</div>
+      <div class="card reveal d3">
+        <div class="shine" aria-hidden="true"></div>
+
+        <!-- Visible copy (human-first, keyword-smart) -->
+        <p class="copy">
+          <strong>Fletcher Christian</strong> is a <strong>Kansas City</strong> musician and producer building music, media, and projects through
+          <strong>Jam Killer Productions</strong>. If you searched <strong>Fletcher Christian KC</strong> or <strong>#fletcherchristiankc</strong>, this is the verified hub
+          for official streaming, video, and project links.
+        </p>
+
+        <p class="copy" style="margin-top:12px;">
+          Start with the main directory at
+          <a href="https://jamkillerproductions.io" target="_blank" rel="noopener"><strong>jamkillerproductions.io</strong></a>,
+          then follow the lanes: releases on Spotify / Apple Music / SoundCloud, media on YouTube and <strong>The Mutiny Report</strong>, and the broader signal work at <strong>JETTAI</strong>.
+        </p>
+
+        <!-- Non-visible SEO text (kept short to reduce risk) -->
+        <div class="seo-only" aria-hidden="true">
+          Fletcher Christian KC Kansas City musician producer Jam Killer Productions The Mutiny Report JETTAI Fletcher Christian music Spotify Apple Music SoundCloud official links.
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="sectionTitle">Contact</div>
+      <div class="card reveal d2">
+        <div class="shine" aria-hidden="true"></div>
+
+        <p class="copy">
+          Fastest path: DM on X or Instagram. For everything else, the main hub stays current.
+        </p>
+
+        <div class="ctaRow">
+          <a class="chip cta" href="https://x.com/projamkiller" target="_blank" rel="noopener">
+            <img class="icon" alt="X logo" src="https://cdn.simpleicons.org/x/ffffff" />
+            <span>DM on X</span>
+          </a>
+          <a class="chip" href="https://instagram.com/fletcherchristian1979" target="_blank" rel="noopener">
+            <img class="icon" alt="Instagram logo" src="https://cdn.simpleicons.org/instagram/ffffff" />
+            <span>DM on Instagram</span>
+          </a>
+          <a class="chip" href="https://www.youtube.com/@Projamkiller" target="_blank" rel="noopener">
+            <img class="icon" alt="YouTube logo" src="https://cdn.simpleicons.org/youtube/ffffff" />
+            <span>YouTube</span>
+          </a>
+          <a class="chip" href="https://jamkillerproductions.io" target="_blank" rel="noopener">
+            <span>Main Hub</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footerRow">
+        <div>
+          <div style="font-weight:900; color:rgba(255,255,255,.86); letter-spacing:.2px;">Fletcher Christian KC</div>
+          <div class="small">Official links • Jam Killer Productions LLC</div>
+        </div>
+        <div class="small">© <span id="y"></span> Jam Killer Productions. All rights reserved.</div>
+      </div>
+    </footer>
+  </main>
+
   <script>
-    // Toggle card reveal
-    function toggleCard(id) {
-      const content = document.getElementById(id);
-      content.style.display = (content.style.display === 'none' || content.style.display === '') 
-        ? 'block' 
-        : 'none';
-    }
+    // Footer year
+    document.getElementById("y").textContent = new Date().getFullYear();
 
-    // Quiz logic
-    function submitQuiz() {
-      const resultDiv = document.getElementById('quiz-result');
-      const q1 = document.querySelector('input[name="q1"]:checked');
-      const q2 = document.querySelector('input[name="q2"]:checked');
+    // Background video pop-in
+    const POP_IN_DELAY_MS = 2100;
+    const bg = document.getElementById("videoBg");
+    const vid = document.getElementById("dragonVideo");
+    vid.muted = true;
 
-      if(!q1 || !q2) {
-        resultDiv.innerHTML = "Answer both questions before you pronounce the End is near.";
-        return;
-      }
-
-      let literal = 0, metaphor = 0, sarcasm = 0;
-
-      // Evaluate question 1
-      if(q1.value === 'literal') literal++;
-      if(q1.value === 'metaphor') metaphor++;
-      if(q1.value === 'sarcasm') sarcasm++;
-
-      // Evaluate question 2
-      if(q2.value === 'literal') literal++;
-      if(q2.value === 'metaphor') metaphor++;
-      if(q2.value === 'sarcasm') sarcasm++;
-
-      // Determine result
-      let message = '';
-      if(literal > metaphor && literal > sarcasm) {
-        message = "<strong>Literal Loose Cannon!</strong> Beware: reading every verse at face value might have you fueling global chaos. Step back from that doomsday ledge.";
-      } else if(metaphor > literal && metaphor > sarcasm) {
-        message = "<strong>Metaphorical Maven!</strong> You get that ancient texts need context. You’re less likely to launch WWIII over a prophecy.";
-      } else if(sarcasm > literal && sarcasm > metaphor) {
-        message = "<strong>Snarky Sage!</strong> Your cutting wit sees through the hype. Just don’t forget some folks actually believe this stuff—scary, right?";
-      } else {
-        message = "<strong>Mixed Mind!</strong> A dash of literal, a hint of metaphor, a pinch of sarcasm. At least you’re not stockpiling nukes in the name of prophecy… we hope.";
-      }
-
-      resultDiv.innerHTML = message;
-    }
+    window.addEventListener("load", () => {
+      setTimeout(() => {
+        bg.classList.add("is-on");
+        vid.play().catch(() => {});
+      }, POP_IN_DELAY_MS);
+    });
   </script>
 </body>
 </html>
