@@ -563,7 +563,7 @@
       <nav class="nav-links" aria-label="Primary">
         <a class="text-link" href="index.html">Home</a>
         <a class="pill-link" href="archive.html">Archive</a>
-        <a class="pill-link" href="https://themutinyreport.com" target="_blank" rel="noopener">Get Updates</a>
+        <a class="pill-link" href="https://mutinyreport.com" target="_blank" rel="noopener">Get Updates</a>
       </nav>
     </div>
   </header>
@@ -620,7 +620,7 @@
       <div>© <span id="year"></span> Fletcher Christian KC. All rights reserved.</div>
       <div class="footer-links">
         <a href="https://jamkillerproductions.io" target="_blank" rel="noopener">A Jam Killer Joint</a>
-        <a href="https://themutinyreport.com" target="_blank" rel="noopener">Get Updates</a>
+        <a href="https://mutinyreport.com" target="_blank" rel="noopener">Get Updates</a>
       </div>
     </div>
   </footer>
@@ -704,18 +704,29 @@
 
       const sharePost = async (post, button) => {
         const url = getPostUrl(post);
+        const defaultImage = 'https://bafybeihqeeb3l7wuz6gfzfd4hhs2exdm2qob72rbxgqeg2renwmyznzshe.ipfs.dweb.link?filename=allseeingeye.JPG';
+        const imageUrl =
+          post.mediaType === 'image' && post.mediaUrl
+            ? post.mediaUrl
+            : defaultImage;
+
+        const shareText = [post.excerpt || '', imageUrl].filter(Boolean).join('\n\n');
 
         try {
           if (navigator.share) {
             await navigator.share({
               title: post.title || 'Post',
-              text: post.excerpt || '',
+              text: shareText,
               url
             });
             return;
           }
 
-          await navigator.clipboard.writeText(url);
+          await navigator.clipboard.writeText(
+            [post.title || 'Post', post.excerpt || '', url, imageUrl]
+              .filter(Boolean)
+              .join('\n\n')
+          );
 
           if (button) {
             const original = button.textContent;
