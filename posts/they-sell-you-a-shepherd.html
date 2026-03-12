@@ -11,17 +11,23 @@
   <link rel="icon" type="image/jpeg" href="https://bafybeihqeeb3l7wuz6gfzfd4hhs2exdm2qob72rbxgqeg2renwmyznzshe.ipfs.dweb.link?filename=allseeingeye.JPG" />
   <link rel="apple-touch-icon" href="https://bafybeihqeeb3l7wuz6gfzfd4hhs2exdm2qob72rbxgqeg2renwmyznzshe.ipfs.dweb.link?filename=allseeingeye.JPG" />
 
-  <meta property="og:type" content="website" />
+  <meta property="og:type" content="article" />
   <meta property="og:site_name" content="Rants in Person" />
   <meta property="og:title" content="They Sell You a Shepherd | Fletcher Christian KC" />
   <meta property="og:description" content="They sell you a shepherd and hand you a sovereign with a kill list. They quote the still waters and skip the blood in the street." />
   <meta property="og:url" content="https://fletcherchristiankc.rip/posts/they-sell-you-a-shepherd.html" />
   <meta property="og:image" content="https://bafybeifclnds77uz7pxtudasncudu6cr5rktwrmt3vfjrljg7k7c2cb57i.ipfs.dweb.link?filename=bronzeserpent.jpeg" />
+  <meta property="og:image:secure_url" content="https://bafybeifclnds77uz7pxtudasncudu6cr5rktwrmt3vfjrljg7k7c2cb57i.ipfs.dweb.link?filename=bronzeserpent.jpeg" />
+  <meta property="og:image:alt" content="They Sell You a Shepherd" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="They Sell You a Shepherd | Fletcher Christian KC" />
   <meta name="twitter:description" content="They sell you a shepherd and hand you a sovereign with a kill list. They quote the still waters and skip the blood in the street." />
   <meta name="twitter:image" content="https://bafybeifclnds77uz7pxtudasncudu6cr5rktwrmt3vfjrljg7k7c2cb57i.ipfs.dweb.link?filename=bronzeserpent.jpeg" />
+  <meta name="twitter:image:alt" content="They Sell You a Shepherd" />
 
   <style>
     :root{
@@ -60,8 +66,8 @@
     }
 
     a{color:inherit;text-decoration:none}
-    img{max-width:100%;display:block}
-    button,input,video{font:inherit}
+    img,video{max-width:100%;display:block}
+    button{font:inherit}
 
     .wrap{
       width:min(calc(100% - 32px), var(--max));
@@ -89,6 +95,7 @@
       display:flex;
       flex-direction:column;
       gap:2px;
+      min-width:0;
     }
 
     .brand-title{
@@ -135,52 +142,52 @@
 
     .text-link:hover{color:var(--text)}
 
-    .archive-hero{
+    .hero{
       padding:26px 0 18px;
     }
 
-    .archive-shell{
+    .hero-shell{
       position:relative;
       overflow:hidden;
       border-radius:30px;
       border:1px solid var(--line);
-      min-height:320px;
+      min-height:360px;
       background:#000;
       box-shadow:var(--shadow);
       isolation:isolate;
     }
 
-    .archive-shell::before{
+    .hero-shell::before{
       content:"";
       position:absolute;
       inset:0;
-      background-image:url("https://bafybeibtbigb4rxxbsh3yo6hnxey3iyr43i4cvczacn2lb7cuid3wl6k5y.ipfs.dweb.link?filename=prudence.JPG");
+      background-image:url("https://bafybeifclnds77uz7pxtudasncudu6cr5rktwrmt3vfjrljg7k7c2cb57i.ipfs.dweb.link?filename=bronzeserpent.jpeg");
       background-size:cover;
-      background-position:center 40%;
-      filter:brightness(.48) saturate(.92);
+      background-position:center;
+      filter:brightness(.42) saturate(.96);
       transform:scale(1.02);
     }
 
-    .archive-shell::after{
+    .hero-shell::after{
       content:"";
       position:absolute;
       inset:0;
       background:
-        linear-gradient(180deg, rgba(8,6,12,.22) 0%, rgba(17,8,28,.56) 68%, rgba(6,4,10,.84) 100%),
-        linear-gradient(90deg, rgba(8,6,12,.68) 0%, rgba(54,22,92,.14) 58%, rgba(8,6,12,.52) 100%);
+        linear-gradient(180deg, rgba(8,6,12,.20) 0%, rgba(17,8,28,.56) 68%, rgba(6,4,10,.86) 100%),
+        linear-gradient(90deg, rgba(8,6,12,.70) 0%, rgba(54,22,92,.14) 58%, rgba(8,6,12,.52) 100%);
     }
 
-    .archive-inner{
+    .hero-inner{
       position:relative;
       z-index:1;
-      min-height:320px;
+      min-height:360px;
       display:flex;
       align-items:end;
       padding:32px;
     }
 
-    .archive-copy{
-      width:min(100%, 720px);
+    .hero-copy{
+      width:min(100%, 820px);
     }
 
     .eyebrow{
@@ -211,16 +218,13 @@
       letter-spacing:-.03em;
     }
 
-    .archive-copy p{
+    .hero-copy p{
       margin:0;
-      color:rgba(244,239,232,.8);
-      max-width:54ch;
+      color:rgba(244,239,232,.82);
+      max-width:58ch;
     }
 
-    .layout{
-      display:grid;
-      grid-template-columns:300px minmax(0, 1fr);
-      gap:24px;
+    .content-wrap{
       padding:16px 0 64px;
     }
 
@@ -251,106 +255,18 @@
       z-index:1;
     }
 
-    .controls{
-      padding:20px;
-      align-self:start;
-      position:sticky;
-      top:92px;
+    .article{
+      padding:22px 24px 28px;
     }
 
-    .control-label{
-      display:block;
-      margin-bottom:10px;
-      color:var(--muted);
-      font-size:.86rem;
-      letter-spacing:.04em;
-      text-transform:uppercase;
-    }
-
-    .search{
-      width:100%;
-      padding:1rem 1rem;
-      border-radius:16px;
-      border:1px solid var(--line);
-      background:rgba(255,255,255,.04);
-      color:var(--text);
-      outline:none;
-      transition:.2s ease;
-    }
-
-    .search:focus{
-      border-color:rgba(200,170,255,.34);
-      background:rgba(255,255,255,.06);
-      box-shadow:0 0 0 4px rgba(124,77,255,.10);
-    }
-
-    .tag-cloud{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      margin-top:14px;
-    }
-
-    .tag{
-      padding:.42rem .72rem;
-      border-radius:999px;
-      border:1px solid var(--line);
-      background:rgba(255,255,255,.03);
-      color:var(--muted);
-      font-size:.82rem;
-      cursor:pointer;
-      transition:.2s ease;
-    }
-
-    .tag:hover,
-    .tag.active{
-      color:var(--text);
-      background:rgba(124,77,255,.14);
-      border-color:rgba(200,170,255,.25);
-    }
-
-    .archive-list{
-      padding:20px 24px;
-    }
-
-    .archive-head{
-      display:flex;
-      align-items:end;
-      justify-content:space-between;
-      gap:16px;
-      margin-bottom:6px;
-    }
-
-    .archive-title{
-      margin:0;
-      font-family:Georgia, "Times New Roman", serif;
-      font-size:1.7rem;
-      letter-spacing:-.02em;
-    }
-
-    .archive-count{
-      color:var(--muted);
-      font-size:.92rem;
-    }
-
-    .archive-item{
-      padding:22px 0;
-      border-top:1px solid var(--line);
-      scroll-margin-top:100px;
-    }
-
-    .archive-item:first-of-type{
-      border-top:none;
-    }
-
-    .archive-meta{
+    .article-meta{
       display:flex;
       gap:10px;
       flex-wrap:wrap;
       align-items:center;
       color:var(--muted);
       font-size:.88rem;
-      margin-bottom:10px;
+      margin-bottom:18px;
     }
 
     .dot{
@@ -360,33 +276,28 @@
       background:rgba(255,255,255,.28);
     }
 
-    .archive-item h2{
-      margin:0 0 10px;
-      font-family:Georgia, "Times New Roman", serif;
-      font-size:clamp(1.4rem, 2.2vw, 1.85rem);
-      line-height:1.08;
-      letter-spacing:-.02em;
-    }
-
-    .archive-excerpt{
-      margin:0;
-      color:rgba(244,239,232,.82);
-      max-width:70ch;
-    }
-
     .tag-row{
       display:flex;
       gap:8px;
       flex-wrap:wrap;
-      margin-top:14px;
+      margin:18px 0 0;
+    }
+
+    .tag{
+      padding:.42rem .72rem;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.03);
+      color:var(--muted);
+      font-size:.82rem;
     }
 
     .post-body{
-      margin-top:18px;
-      color:rgba(244,239,232,.9);
-      max-width:720px;
-      font-size:1.05rem;
-      line-height:1.75;
+      margin-top:22px;
+      color:rgba(244,239,232,.92);
+      max-width:760px;
+      font-size:1.06rem;
+      line-height:1.78;
     }
 
     .post-body p:first-child{margin-top:0}
@@ -414,28 +325,11 @@
       text-underline-offset:2px;
     }
 
-    .post-media{
-      margin-top:18px;
-      border-radius:18px;
-      overflow:hidden;
-      border:1px solid var(--line);
-      background:#0a0910;
-      max-width:720px;
-    }
-
-    .post-media img,
-    .post-media video{
-      width:100%;
-      height:auto;
-      object-fit:cover;
-      display:block;
-    }
-
     .post-actions{
       display:flex;
       gap:10px;
       flex-wrap:wrap;
-      margin-top:18px;
+      margin-top:22px;
     }
 
     .share-button{
@@ -455,11 +349,6 @@
       transform:translateY(-1px);
       border-color:var(--line-strong);
       background:rgba(124,77,255,.14);
-    }
-
-    .empty{
-      padding:24px 0 8px;
-      color:var(--muted);
     }
 
     .site-footer{
@@ -488,16 +377,6 @@
       color:var(--text);
     }
 
-    @media (max-width: 960px){
-      .layout{
-        grid-template-columns:1fr;
-      }
-
-      .controls{
-        position:static;
-      }
-    }
-
     @media (max-width: 640px){
       .wrap{
         width:min(calc(100% - 20px), var(--max));
@@ -510,18 +389,17 @@
         flex-direction:column;
       }
 
-      .archive-inner{
-        min-height:280px;
+      .hero-inner{
+        min-height:300px;
         padding:22px;
       }
 
-      .archive-shell{
-        min-height:280px;
+      .hero-shell{
+        min-height:300px;
         border-radius:24px;
       }
 
-      .archive-list,
-      .controls{
+      .article{
         padding-left:18px;
         padding-right:18px;
       }
@@ -534,26 +412,24 @@
   </style>
 
   <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": "They Sell You a Shepherd",
-  "description": "They sell you a shepherd and hand you a sovereign with a kill list. They quote the still waters and skip the blood in the street.",
-  "datePublished": "2026-03-12",
-  "author": {
-    "@type": "Person",
-    "name": "Fletcher Christian"
-  },
-  "image": [
-    "https://bafybeifclnds77uz7pxtudasncudu6cr5rktwrmt3vfjrljg7k7c2cb57i.ipfs.dweb.link?filename=bronzeserpent.jpeg"
-  ],
-  "mainEntityOfPage": "https://fletcherchristiankc.rip/posts/they-sell-you-a-shepherd.html",
-  "publisher": {
-    "@type": "Organization",
-    "name": "Jam Killer Productions LLC",
-    "url": "https://jamkillerproductions.io"
+  {
+    "@context":"https://schema.org",
+    "@type":"Article",
+    "headline":"They Sell You a Shepherd",
+    "description":"They sell you a shepherd and hand you a sovereign with a kill list. They quote the still waters and skip the blood in the street.",
+    "datePublished":"2026-03-12",
+    "author":{
+      "@type":"Person",
+      "name":"Fletcher Christian"
+    },
+    "image":["https://bafybeifclnds77uz7pxtudasncudu6cr5rktwrmt3vfjrljg7k7c2cb57i.ipfs.dweb.link?filename=bronzeserpent.jpeg"],
+    "mainEntityOfPage":"https://fletcherchristiankc.rip/posts/they-sell-you-a-shepherd.html",
+    "publisher":{
+      "@type":"Organization",
+      "name":"Jam Killer Productions LLC",
+      "url":"https://jamkillerproductions.io"
+    }
   }
-}
   </script>
 </head>
 <body>
@@ -567,75 +443,56 @@
       <nav class="nav-links" aria-label="Primary">
         <a class="text-link" href="../index.html">Home</a>
         <a class="pill-link" href="../archive.html">Archive</a>
-        <a class="pill-link" href="https://mutinyreport.com" target="_blank" rel="noopener">Get Updates</a>
+        <a class="pill-link" href="https://themutinyreport.com" target="_blank" rel="noopener">Get Updates</a>
       </nav>
     </div>
   </header>
 
   <main>
-    <section class="archive-hero">
+    <section class="hero">
       <div class="wrap">
-        <div class="archive-shell">
-          <div class="archive-inner">
-            <div class="archive-copy">
-              <div class="eyebrow">Full archive</div>
+        <div class="hero-shell">
+          <div class="hero-inner">
+            <div class="hero-copy">
+              <div class="eyebrow">Fletcher Christian KC</div>
               <h1>They Sell You a Shepherd</h1>
-              <p>The full archive. Search it. Filter it. Keep moving.</p>
+              <p>They sell you a shepherd and hand you a sovereign with a kill list. They quote the still waters and skip the blood in the street.</p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="wrap layout">
-      <aside class="panel controls">
-        <label class="control-label" for="searchInput">Search</label>
-        <input
-          id="searchInput"
-          class="search"
-          type="search"
-          placeholder="Search title, tags, excerpt, content"
-          autocomplete="off"
-        />
-
-        <div style="height:18px"></div>
-
-        <div class="control-label">Tags</div>
-        <div class="tag-cloud" id="tagCloud"></div>
-
-        <div style="height:18px"></div>
-
-        <a class="pill-link" href="../index.html" style="display:inline-flex;">Back Home</a>
-      </aside>
-
-      <section class="panel archive-list" aria-labelledby="archive-heading">
-        <div class="archive-head">
-          <h2 class="archive-title" id="archive-heading">Archive</h2>
-          <div class="archive-count" id="resultsLabel">Showing all posts</div>
+    <section class="wrap content-wrap">
+      <article class="panel article">
+        <div class="article-meta">
+          <span>Fletcher Christian</span>
+          <span class="dot" aria-hidden="true"></span>
+          <time datetime="2026-03-12">March 12, 2026</time>
         </div>
 
-        <div id="archiveContainer">
+        <div class="tag-row">
+          <span class="tag">religion</span>
+<span class="tag">theology</span>
+<span class="tag">old-testament</span>
+<span class="tag">yahweh</span>
+<span class="tag">bible</span>
+<span class="tag">violence</span>
+<span class="tag">politics</span>
+<span class="tag">faith</span>
+<span class="tag">critique</span>
+<span class="tag">amalek</span>
+        </div>
 
-      <article class="archive-item" id="they-sell-you-a-shepherd">
-        <div class="archive-meta">
-          <span>Fletcher Christian</span><span class="dot" aria-hidden="true"></span><time datetime="2026-03-12">March 12, 2026</time><span class="dot" aria-hidden="true"></span><span>religion, theology, old-testament, yahweh, bible, violence, politics, faith, critique, amalek</span>
+        <div class="post-body">
+          <p><strong>They Sell You a Shepherd</strong></p><p>People love handing out the velvet verses first, the soft-focus Yahweh lines, the little narcotics of devotion printed on coffee mugs for people who have clearly never read the chapter before or after the line they’re quoting. “Be still, and know that I am God” gets served up like a warm towel for the nervous soul, when in context it lands like the voice of absolute power ordering the world to freeze and acknowledge who runs the machinery [1]. That is not tenderness. That is command. If some man leaned over a woman at a bar and said, “Be still, and know that I am a man,” nobody would call it comforting. They would call the police. It is just domination and control wrapped in a sentence. But in church, with enough distance and enough repetition, command gets mistaken for comfort, and fear learns how to wear perfume and drink the Kool-Aid.</p><p>Then there is Job, that old theological fever dream that believers keep calling profound because they have already decided God is innocent no matter what the text says. The story opens by telling you Job is blameless and upright [2]. An innocent man with clean hands. No hidden clause in the contract. Then Yahweh lets the Adversary—Lucifer, by the way; why is he in Heaven? Thought he was kicked out—wreck him anyway: children dead, wealth gone, body destroyed, mind dragged through the mud of cosmic humiliation, all to settle a wager inside the divine court [3]. And when God finally speaks, he does not explain himself with mercy or moral clarity. He thunders from the whirlwind with the ancient equivalent of, “Who the hell do you think you are?” [4] Strip away the stained glass and the worship soundtrack, and what you have is raw asymmetry: infinite power crushing an innocent man, then demanding awe as the proper response.</p><p>The contradictions do not help the case. Yahweh introduces himself as “compassionate and merciful… filled with unfailing love,” then immediately says he lays the sins of the parents upon their children and grandchildren [5]. That is not mercy. That is inherited punishment being justified. Imagine sending a two-year-old to jail because his father robbed a liquor store. Then Ezekiel comes along and says the child will not be punished for the parent’s sins; each person is responsible for their own guilt [6]. Good. Fine. Excellent. So which one are we bowing to here?</p><p>And Amalek comes through the drywall like the Kool-Aid Man. In 1 Samuel 15, Yahweh orders the destruction of men, women, children, infants, and even the animals [7]. Not just enemy soldiers. Not merely political leadership. Infants. Livestock. Total eradication.</p><p>And before the sentimentalists rush in with “but God is love,” let’s put this bed under the black light. Egypt’s firstborn are killed from palace to prison [9], and then Psalm 136 turns that horror into praise: “Give thanks to him who killed the firstborn of Egypt. His faithful love endures forever” [10]. Read that like a sane mammal.</p><p>They sell you a shepherd and hand you a sovereign with a kill list. They quote the still waters and skip the blood in the street.</p><hr><h3>Source Spine</h3><ul><li><a href="https://www.biblegateway.com/passage/?search=Psalm%2046%3A10&version=NLT" target="_blank">Psalm 46:10</a></li><li><a href="https://www.biblegateway.com/passage/?search=Job%201%3A1&version=NLT" target="_blank">Job 1:1</a></li><li><a href="https://www.biblegateway.com/passage/?search=Job%201-2&version=NLT" target="_blank">Job 1–2</a></li><li><a href="https://www.biblegateway.com/passage/?search=Job%2038%3A1-4&version=NLT" target="_blank">Job 38</a></li><li><a href="https://www.biblegateway.com/passage/?search=Exodus%2034%3A6-7&version=NLT" target="_blank">Exodus 34</a></li><li><a href="https://www.biblegateway.com/passage/?search=Ezekiel%2018%3A20&version=NLT" target="_blank">Ezekiel 18</a></li><li><a href="https://www.biblegateway.com/passage/?search=1%20Samuel%2015%3A2-3&version=NLT" target="_blank">1 Samuel 15</a></li><li><a href="https://www.biblegateway.com/passage/?search=Exodus%2012%3A29&version=NLT" target="_blank">Exodus 12</a></li><li><a href="https://www.biblegateway.com/passage/?search=Psalm%20136%3A10&version=NLT" target="_blank">Psalm 136</a></li><li><a href="https://www.biblegateway.com/passage/?search=2%20Kings%202%3A23-24&version=NLT" target="_blank">2 Kings 2</a></li><li><a href="https://www.biblegateway.com/passage/?search=1%20Corinthians%2013%3A12&version=KJV" target="_blank">1 Corinthians 13</a></li></ul>
         </div>
-        <h2>They Sell You a Shepherd</h2>
-        <p class="archive-excerpt">They sell you a shepherd and hand you a sovereign with a kill list. They quote the still waters and skip the blood in the street.</p>
-        
-        <div class="post-media">
-          <img src="https://bafybeifclnds77uz7pxtudasncudu6cr5rktwrmt3vfjrljg7k7c2cb57i.ipfs.dweb.link?filename=bronzeserpent.jpeg" alt="They Sell You a Shepherd" loading="lazy" />
-        </div>
-        <div class="tag-row"><button class="tag" type="button" data-tag="religion">religion</button><button class="tag" type="button" data-tag="theology">theology</button><button class="tag" type="button" data-tag="old-testament">old-testament</button><button class="tag" type="button" data-tag="yahweh">yahweh</button><button class="tag" type="button" data-tag="bible">bible</button><button class="tag" type="button" data-tag="violence">violence</button><button class="tag" type="button" data-tag="politics">politics</button><button class="tag" type="button" data-tag="faith">faith</button><button class="tag" type="button" data-tag="critique">critique</button><button class="tag" type="button" data-tag="amalek">amalek</button></div>
-        <div class="post-body"><p><strong>They Sell You a Shepherd</strong></p><p>People love handing out the velvet verses first, the soft-focus Yahweh lines, the little narcotics of devotion printed on coffee mugs for people who have clearly never read the chapter before or after the line they’re quoting. “Be still, and know that I am God” gets served up like a warm towel for the nervous soul, when in context it lands like the voice of absolute power ordering the world to freeze and acknowledge who runs the machinery [1]. That is not tenderness. That is command. If some man leaned over a woman at a bar and said, “Be still, and know that I am a man,” nobody would call it comforting. They would call the police. It is just domination and control wrapped in a sentence. But in church, with enough distance and enough repetition, command gets mistaken for comfort, and fear learns how to wear perfume and drink the Kool-Aid.</p><p>Then there is Job, that old theological fever dream that believers keep calling profound because they have already decided God is innocent no matter what the text says. The story opens by telling you Job is blameless and upright [2]. An innocent man with clean hands. No hidden clause in the contract. Then Yahweh lets the Adversary—Lucifer, by the way; why is he in Heaven? Thought he was kicked out—wreck him anyway: children dead, wealth gone, body destroyed, mind dragged through the mud of cosmic humiliation, all to settle a wager inside the divine court [3]. And when God finally speaks, he does not explain himself with mercy or moral clarity. He thunders from the whirlwind with the ancient equivalent of, “Who the hell do you think you are?” [4] Strip away the stained glass and the worship soundtrack, and what you have is raw asymmetry: infinite power crushing an innocent man, then demanding awe as the proper response.</p><p>The contradictions do not help the case. Yahweh introduces himself as “compassionate and merciful… filled with unfailing love,” then immediately says he lays the sins of the parents upon their children and grandchildren [5]. That is not mercy. That is inherited punishment being justified. Imagine sending a two-year-old to jail because his father robbed a liquor store. Then Ezekiel comes along and says the child will not be punished for the parent’s sins; each person is responsible for their own guilt [6]. Good. Fine. Excellent. So which one are we bowing to here?</p><p>And Amalek comes through the drywall like the Kool-Aid Man. In 1 Samuel 15, Yahweh orders the destruction of men, women, children, infants, and even the animals [7]. Not just enemy soldiers. Not merely political leadership. Infants. Livestock. Total eradication.</p><p>And before the sentimentalists rush in with “but God is love,” let’s put this bed under the black light. Egypt’s firstborn are killed from palace to prison [9], and then Psalm 136 turns that horror into praise: “Give thanks to him who killed the firstborn of Egypt. His faithful love endures forever” [10]. Read that like a sane mammal.</p><p>They sell you a shepherd and hand you a sovereign with a kill list. They quote the still waters and skip the blood in the street.</p><hr><h3>Source Spine</h3><ul><li><a href="https://www.biblegateway.com/passage/?search=Psalm%2046%3A10&version=NLT" target="_blank">Psalm 46:10</a></li><li><a href="https://www.biblegateway.com/passage/?search=Job%201%3A1&version=NLT" target="_blank">Job 1:1</a></li><li><a href="https://www.biblegateway.com/passage/?search=Job%201-2&version=NLT" target="_blank">Job 1–2</a></li><li><a href="https://www.biblegateway.com/passage/?search=Job%2038%3A1-4&version=NLT" target="_blank">Job 38</a></li><li><a href="https://www.biblegateway.com/passage/?search=Exodus%2034%3A6-7&version=NLT" target="_blank">Exodus 34</a></li><li><a href="https://www.biblegateway.com/passage/?search=Ezekiel%2018%3A20&version=NLT" target="_blank">Ezekiel 18</a></li><li><a href="https://www.biblegateway.com/passage/?search=1%20Samuel%2015%3A2-3&version=NLT" target="_blank">1 Samuel 15</a></li><li><a href="https://www.biblegateway.com/passage/?search=Exodus%2012%3A29&version=NLT" target="_blank">Exodus 12</a></li><li><a href="https://www.biblegateway.com/passage/?search=Psalm%20136%3A10&version=NLT" target="_blank">Psalm 136</a></li><li><a href="https://www.biblegateway.com/passage/?search=2%20Kings%202%3A23-24&version=NLT" target="_blank">2 Kings 2</a></li><li><a href="https://www.biblegateway.com/passage/?search=1%20Corinthians%2013%3A12&version=KJV" target="_blank">1 Corinthians 13</a></li></ul></div>
+
         <div class="post-actions">
           <button class="share-button" type="button" data-share-url="https://fletcherchristiankc.rip/posts/they-sell-you-a-shepherd.html" data-share-title="They Sell You a Shepherd" data-share-text="They sell you a shepherd and hand you a sovereign with a kill list. They quote the still waters and skip the blood in the street.">Share</button>
           <a class="share-button" href="../archive.html">Archive</a>
         </div>
       </article>
-    
-</div>
-      </section>
     </section>
   </main>
 
@@ -656,10 +513,12 @@
 
       document.addEventListener('click', async (event) => {
         const button = event.target.closest('.share-button');
-        if (!button) return;
+        if (!button || !button.dataset.shareUrl) return;
+
         const url = button.dataset.shareUrl;
         const title = button.dataset.shareTitle || document.title;
         const text = button.dataset.shareText || '';
+
         try {
           if (navigator.share) {
             await navigator.share({ title, text, url });
@@ -667,7 +526,9 @@
             await navigator.clipboard.writeText(url);
             const original = button.textContent;
             button.textContent = 'Link Copied';
-            setTimeout(() => { button.textContent = original; }, 1800);
+            setTimeout(() => {
+              button.textContent = original;
+            }, 1800);
           }
         } catch (error) {
           console.error('Share failed:', error);
@@ -677,4 +538,3 @@
   </script>
 </body>
 </html>
-
