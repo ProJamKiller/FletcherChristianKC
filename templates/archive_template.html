@@ -298,8 +298,11 @@
       background:rgba(255,255,255,.03);
       color:var(--muted);
       font-size:.82rem;
-      cursor:pointer;
       transition:.2s ease;
+    }
+
+    button.tag{
+      cursor:pointer;
     }
 
     .tag:hover,
@@ -368,6 +371,10 @@
       letter-spacing:-.02em;
     }
 
+    .archive-item h2 a:hover{
+      color:var(--accent);
+    }
+
     .archive-excerpt{
       margin:0;
       color:rgba(244,239,232,.82);
@@ -379,39 +386,6 @@
       gap:8px;
       flex-wrap:wrap;
       margin-top:14px;
-    }
-
-    .post-body{
-      margin-top:18px;
-      color:rgba(244,239,232,.9);
-      max-width:720px;
-      font-size:1.05rem;
-      line-height:1.75;
-    }
-
-    .post-body p:first-child{margin-top:0}
-    .post-body p:last-child{margin-bottom:0}
-    .post-body p{margin:0 0 1rem}
-
-    .post-body h2,
-    .post-body h3{
-      margin:2rem 0 1rem;
-      font-family:Georgia, "Times New Roman", serif;
-      letter-spacing:-.02em;
-    }
-
-    .post-body ul{
-      margin:0 0 0 1.2rem;
-      padding:0;
-    }
-
-    .post-body li{
-      margin:0 0 .9rem;
-    }
-
-    .post-body a{
-      text-decoration:underline;
-      text-underline-offset:2px;
     }
 
     .post-media{
@@ -563,6 +537,7 @@
       <nav class="nav-links" aria-label="Primary">
         <a class="text-link" href="index.html">Home</a>
         <a class="pill-link" href="archive.html">Archive</a>
+        <a class="pill-link" href="about.html">About</a>
         <a class="pill-link" href="https://mutinyreport.com" target="_blank" rel="noopener">Get Updates</a>
       </nav>
     </div>
@@ -607,10 +582,12 @@
       <section class="panel archive-list" aria-labelledby="archive-heading">
         <div class="archive-head">
           <h2 class="archive-title" id="archive-heading">Archive</h2>
-          <div class="archive-count" id="resultsLabel">Showing all posts</div>
+          <div class="archive-count" id="resultsLabel">{{ARCHIVE_COUNT_LABEL}}</div>
         </div>
 
-        <div id="archiveContainer"></div>
+        <div id="archiveContainer">
+          {{ARCHIVE_POSTS}}
+        </div>
       </section>
     </section>
   </main>
@@ -619,116 +596,114 @@
     <div class="wrap footer-row">
       <div>© <span id="year"></span> Fletcher Christian KC. All rights reserved.</div>
       <div class="footer-links">
+        <a href="about.html">About</a>
         <a href="https://jamkillerproductions.io" target="_blank" rel="noopener">A Jam Killer Joint</a>
         <a href="https://mutinyreport.com" target="_blank" rel="noopener">Get Updates</a>
       </div>
     </div>
   </footer>
 
-  <script src="posts.js"></script>
   <script>
     (() => {
-      const POSTS = Array.isArray(window.POSTS) ? [...window.POSTS] : [];
       const searchInput = document.getElementById('searchInput');
       const archiveContainer = document.getElementById('archiveContainer');
       const tagCloud = document.getElementById('tagCloud');
       const resultsLabel = document.getElementById('resultsLabel');
       const year = document.getElementById('year');
+      const cards = Array.from(document.querySelectorAll('[data-filter-card]'));
 
-      year.textContent = new Date().getFullYear();
+      if (year) year.textContent = new Date().getFullYear();
 
       let activeTag = '';
       let query = '';
 
-      const normalize = (value) => String(value || '').trim().toLowerCase();
-
-      const sortPosts = (posts) => posts.sort((a, b) => {
-        const da = new Date(a.date || 0).getTime();
-        const db = new Date(b.date || 0).getTime();
-        return db - da;
-      });
-
       const allTags = [...new Set(
-        POSTS.flatMap(post => Array.isArray(post.tags) ? post.tags : [])
-          .map(tag => tag.trim())
-          .filter(Boolean)
+        cards.flatMap(card => (card.dataset.tags || '').split('|').map(tag => tag.trim()).filter(Boolean))
       )].sort((a, b) => a.localeCompare(b));
 
-      const formatDate = (dateString) => {
-        if (!dateString) return '';
-        const date = new Date(dateString + 'T12:00:00');
-        if (Number.isNaN(date.getTime())) return dateString;
-        return date.toLocaleDateString(undefined, {
-          year: 'numeric',
-          month: 'long',
-          day: 'numeric'
+      const makeButton = (tag, isActive = false) => {
+        const button = document.createElement('button');
+        button.className = 'tag' + (isActive ? ' active' : '');
+        button.type = 'button';
+        button.textContent = tag;
+        return button;
+      };
+
+      const renderTags = () => {
+        tagCloud.innerHTML = '';
+
+        if (allTags.length) {
+          const allButton = makeButton('All', !activeTag);
+          allButton.addEventListener('click', () => {
+            activeTag = '';
+            render();
+          });
+          tagCloud.appendChild(allButton);
+
+          allTags.forEach(tag => {
+            const button = makeButton(tag, activeTag === tag);
+            button.addEventListener('click', () => {
+              activeTag = activeTag === tag ? '' : tag;
+              render();
+            });
+            tagCloud.appendChild(button);
+          });
+        } else {
+          tagCloud.innerHTML = '<div class="empty">No tags yet.</div>';
+        }
+      };
+
+      const matches = (card) => {
+        const haystack = (card.dataset.search || '').toLowerCase();
+        const tags = (card.dataset.tags || '').split('|').map(t => t.trim()).filter(Boolean);
+        const matchesQuery = !query || haystack.includes(query);
+        const matchesTag = !activeTag || tags.includes(activeTag);
+        return matchesQuery && matchesTag;
+      };
+
+      const render = () => {
+        let visible = 0;
+
+        cards.forEach(card => {
+          const show = matches(card);
+          card.style.display = show ? '' : 'none';
+          if (show) visible += 1;
         });
-      };
 
-      const mediaMarkup = (post) => {
-        if (!post.mediaType || !post.mediaUrl) return '';
-        if (post.mediaType === 'image') {
-          return `
-            <div class="post-media">
-              <img src="${post.mediaUrl}" alt="${post.title ? post.title : 'Post image'}" loading="lazy" />
-            </div>
-          `;
+        resultsLabel.textContent = visible
+          ? `Showing ${visible} post${visible === 1 ? '' : 's'}`
+          : 'No matching posts';
+
+        renderTags();
+
+        if (window.location.hash) {
+          const target = archiveContainer.querySelector(window.location.hash);
+          if (target && target.style.display !== 'none') {
+            setTimeout(() => {
+              target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 120);
+          }
         }
-        if (post.mediaType === 'video') {
-          return `
-            <div class="post-media">
-              <video controls preload="metadata">
-                <source src="${post.mediaUrl}" />
-              </video>
-            </div>
-          `;
-        }
-        return '';
       };
 
-      const makeSlug = (post) => {
-        if (post.slug && String(post.slug).trim()) return String(post.slug).trim();
+      searchInput.addEventListener('input', (event) => {
+        query = String(event.target.value || '').trim().toLowerCase();
+        render();
+      });
 
-        return String(post.title || 'post')
-          .toLowerCase()
-          .trim()
-          .replace(/['"]/g, '')
-          .replace(/[^a-z0-9]+/g, '-')
-          .replace(/^-+|-+$/g, '');
-      };
+      document.addEventListener('click', async (event) => {
+        const button = event.target.closest('.share-button');
+        if (!button || !button.dataset.shareUrl) return;
 
-      const getPostUrl = (post) => {
-        const slug = makeSlug(post);
-        return `https://fletcherchristiankc.rip/archive.html#${slug}`;
-      };
-
-      const sharePost = async (post, button) => {
-        const url = getPostUrl(post);
-        const defaultImage = 'https://bafybeihqeeb3l7wuz6gfzfd4hhs2exdm2qob72rbxgqeg2renwmyznzshe.ipfs.dweb.link?filename=allseeingeye.JPG';
-        const imageUrl =
-          post.mediaType === 'image' && post.mediaUrl
-            ? post.mediaUrl
-            : defaultImage;
-
-        const shareText = [post.excerpt || '', imageUrl].filter(Boolean).join('\n\n');
+        const url = button.dataset.shareUrl;
+        const title = button.dataset.shareTitle || 'Post';
+        const text = button.dataset.shareText || '';
 
         try {
           if (navigator.share) {
-            await navigator.share({
-              title: post.title || 'Post',
-              text: shareText,
-              url
-            });
-            return;
-          }
-
-          await navigator.clipboard.writeText(
-            [post.title || 'Post', post.excerpt || '', url, imageUrl]
-              .filter(Boolean)
-              .join('\n\n')
-          );
-
-          if (button) {
+            await navigator.share({ title, text, url });
+          } else {
+            await navigator.clipboard.writeText(url);
             const original = button.textContent;
             button.textContent = 'Link Copied';
             setTimeout(() => {
@@ -738,146 +713,6 @@
         } catch (error) {
           console.error('Share failed:', error);
         }
-      };
-
-      const matches = (post) => {
-        const haystack = normalize([
-          post.title,
-          post.author,
-          post.excerpt,
-          post.content,
-          ...(post.tags || [])
-        ].join(' '));
-
-        const matchesQuery = !query || haystack.includes(query);
-        const matchesTag = !activeTag || (post.tags || []).some(tag => normalize(tag) === normalize(activeTag));
-
-        return matchesQuery && matchesTag;
-      };
-
-      const getArchivePosts = () => sortPosts(POSTS).filter(matches);
-
-      const createTagButton = (tag) => {
-        const button = document.createElement('button');
-        button.className = 'tag' + (normalize(activeTag) === normalize(tag) ? ' active' : '');
-        button.type = 'button';
-        button.textContent = tag;
-        button.addEventListener('click', () => {
-          activeTag = normalize(activeTag) === normalize(tag) ? '' : tag;
-          render();
-        });
-        return button;
-      };
-
-      const renderTags = () => {
-        tagCloud.innerHTML = '';
-
-        if (allTags.length) {
-          const allButton = document.createElement('button');
-          allButton.className = 'tag' + (!activeTag ? ' active' : '');
-          allButton.type = 'button';
-          allButton.textContent = 'All';
-          allButton.addEventListener('click', () => {
-            activeTag = '';
-            render();
-          });
-          tagCloud.appendChild(allButton);
-
-          allTags.forEach(tag => tagCloud.appendChild(createTagButton(tag)));
-        } else {
-          const empty = document.createElement('div');
-          empty.className = 'empty';
-          empty.textContent = 'No tags yet.';
-          tagCloud.appendChild(empty);
-        }
-      };
-
-      const renderArchive = (posts) => {
-        archiveContainer.innerHTML = '';
-
-        if (!POSTS.length) {
-          archiveContainer.innerHTML = '<div class="empty">No posts yet. Add your writing in <code>posts.js</code>.</div>';
-          resultsLabel.textContent = 'No posts yet';
-          return;
-        }
-
-        if (!posts.length) {
-          archiveContainer.innerHTML = '<div class="empty">Nothing matched your search or tag filter.</div>';
-          resultsLabel.textContent = 'No matching posts';
-          return;
-        }
-
-        resultsLabel.textContent = `Showing ${posts.length} post${posts.length === 1 ? '' : 's'}`;
-
-        posts.forEach(post => {
-          const article = document.createElement('article');
-          article.className = 'archive-item';
-          article.id = makeSlug(post);
-
-          const metaParts = [];
-          if (post.author) metaParts.push(`<span>${post.author}</span>`);
-          if (post.date) metaParts.push(`<time datetime="${post.date}">${formatDate(post.date)}</time>`);
-          if ((post.tags || []).length) metaParts.push(`<span>${post.tags.join(', ')}</span>`);
-
-          const meta = `
-            <div class="archive-meta">
-              ${metaParts.map((part, index) => `${index > 0 ? '<span class="dot" aria-hidden="true"></span>' : ''}${part}`).join('')}
-            </div>
-          `;
-
-          const excerpt = post.excerpt ? `<p class="archive-excerpt">${post.excerpt}</p>` : '';
-          const tags = (post.tags || []).length
-            ? `<div class="tag-row">${post.tags.map(tag => `<button class="tag" type="button" data-tag="${tag}">${tag}</button>`).join('')}</div>`
-            : '';
-
-          const body = post.content ? `<div class="post-body">${post.content}</div>` : '';
-          const media = mediaMarkup(post);
-
-          article.innerHTML = `
-            ${meta}
-            <h2>${post.title || 'Untitled'}</h2>
-            ${excerpt}
-            ${media}
-            ${tags}
-            ${body}
-            <div class="post-actions">
-              <button class="share-button" type="button" data-share="true">Share</button>
-            </div>
-          `;
-
-          article.querySelectorAll('[data-tag]').forEach(btn => {
-            btn.addEventListener('click', () => {
-              activeTag = btn.getAttribute('data-tag') || '';
-              render();
-            });
-          });
-
-          const shareBtn = article.querySelector('[data-share]');
-          if (shareBtn) {
-            shareBtn.addEventListener('click', () => sharePost(post, shareBtn));
-          }
-
-          archiveContainer.appendChild(article);
-        });
-
-        if (window.location.hash) {
-          const target = document.querySelector(window.location.hash);
-          if (target) {
-            setTimeout(() => {
-              target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }, 120);
-          }
-        }
-      };
-
-      const render = () => {
-        renderTags();
-        renderArchive(getArchivePosts());
-      };
-
-      searchInput.addEventListener('input', (event) => {
-        query = normalize(event.target.value);
-        render();
       });
 
       render();
